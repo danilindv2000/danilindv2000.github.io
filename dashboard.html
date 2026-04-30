@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Панель управления - КвантиУм</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="container">
+                <div class="logo">
+                    <h2>🎓 КвантиУм</h2>
+                </div>
+                <nav class="dashboard-nav">
+                    <a href="dashboard.html" class="active">Главная</a>
+                    <a href="tests.html">Тесты</a>
+                    <a href="results.html">Результаты</a>
+                    <a href="groups.html">Группы</a>
+                    <a href="#" onclick="logout()">Выйти</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="dashboard-content">
+            <div class="container">
+                <!-- Welcome Section -->
+                <div class="section">
+                    <h2 id="welcomeMessage">Добро пожаловать!</h2>
+                    <p style="color: var(--text-light);">Панель управления системой тестирования</p>
+                </div>
+
+                <!-- Statistics -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Всего тестов</h3>
+                        <div class="stat-value" id="totalTests">0</div>
+                        <div class="stat-change positive">↑ 12% за месяц</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Пройдено тестов</h3>
+                        <div class="stat-value" id="completedTests">0</div>
+                        <div class="stat-change positive">↑ 24% за месяц</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Средний балл</h3>
+                        <div class="stat-value" id="averageScore">0%</div>
+                        <div class="stat-change positive">↑ 7% за месяц</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Активных студентов</h3>
+                        <div class="stat-value" id="activeStudents">0</div>
+                        <div class="stat-change positive">↑ 5 за неделю</div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="section">
+                    <h2>Быстрые действия</h2>
+                    <div class="features-grid" style="margin-top: 2rem;">
+                        <div class="feature-card" onclick="window.location.href='tests.html'">
+                            <div class="feature-icon">📝</div>
+                            <h4>Создать тест</h4>
+                            <p>Создать новый тест для студентов</p>
+                        </div>
+                        <div class="feature-card" onclick="window.location.href='results.html'">
+                            <div class="feature-icon">📊</div>
+                            <h4>Просмотреть результаты</h4>
+                            <p>Анализ успеваемости студентов</p>
+                        </div>
+                        <div class="feature-card" onclick="window.location.href='groups.html'">
+                            <div class="feature-icon">👥</div>
+                            <h4>Управление группами</h4>
+                            <p>Организация студентов по классам</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Tests -->
+                <div class="section">
+                    <h2>Последние тесты</h2>
+                    <div id="recentTests" class="test-list">
+                        <!-- Tests will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

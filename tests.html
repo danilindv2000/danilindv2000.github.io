@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление тестами - КвантиУм</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="container">
+                <div class="logo">
+                    <h2>🎓 КвантиУм</h2>
+                </div>
+                <nav class="dashboard-nav">
+                    <a href="dashboard.html">Главная</a>
+                    <a href="tests.html" class="active">Тесты</a>
+                    <a href="results.html">Результаты</a>
+                    <a href="groups.html">Группы</a>
+                    <a href="#" onclick="logout()">Выйти</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="dashboard-content">
+            <div class="container">
+                <!-- Create Test Button -->
+                <div class="section">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <h2>Управление тестами</h2>
+                        <button class="btn-primary" onclick="showCreateTestModal()">+ Создать тест</button>
+                    </div>
+                    
+                    <!-- Tests List -->
+                    <div id="testsList" class="test-list">
+                        <!-- Tests will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Create/Edit Test Modal -->
+    <div id="testModal" class="auth-container hidden">
+        <div class="auth-box" style="max-width: 600px;">
+            <h2 id="modalTitle">Создать новый тест</h2>
+            
+            <div id="errorMessage" class="error-message hidden"></div>
+            <div id="successMessage" class="success-message hidden"></div>
+
+            <form id="testForm">
+                <div class="form-group">
+                    <label for="testTitle">Название теста</label>
+                    <input type="text" id="testTitle" required placeholder="Например: ОГЭ по математике - Тема 3">
+                </div>
+                
+                <div class="form-group">
+                    <label for="testSubject">Предмет</label>
+                    <select id="testSubject" required>
+                        <option value="">Выберите предмет</option>
+                        <option value="math">Математика</option>
+                        <option value="physics">Физика</option>
+                        <option value="cs">Информатика</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="testExamType">Тип экзамена</label>
+                    <select id="testExamType" required>
+                        <option value="">Выберите тип</option>
+                        <option value="OGE">ОГЭ (8-9 классы)</option>
+                        <option value="EGE">ЕГЭ (10-11 классы)</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="testDuration">Время на выполнение (минуты)</label>
+                    <input type="number" id="testDuration" min="5" max="180" value="30" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="testQuestionsCount">Количество вопросов</label>
+                    <input type="number" id="testQuestionsCount" min="5" max="50" value="10" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="testDescription">Описание теста</label>
+                    <textarea id="testDescription" rows="3" placeholder="Краткое описание теста и тем"></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary btn-full">Сохранить тест</button>
+                <button type="button" class="btn-secondary btn-full" style="margin-top: 10px;" onclick="hideTestModal()">Отмена</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/tests.js"></script>
+</body>
+</html>

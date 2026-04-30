@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Управление группами - КвантиУм</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="container">
+                <div class="logo">
+                    <h2>🎓 КвантиУм</h2>
+                </div>
+                <nav class="dashboard-nav">
+                    <a href="dashboard.html">Главная</a>
+                    <a href="tests.html">Тесты</a>
+                    <a href="results.html">Результаты</a>
+                    <a href="groups.html" class="active">Группы</a>
+                    <a href="#" onclick="logout()">Выйти</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="dashboard-content">
+            <div class="container">
+                <!-- Groups Header -->
+                <div class="section">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                        <h2>Управление группами</h2>
+                        <button class="btn-primary" onclick="showCreateGroupModal()">+ Создать группу</button>
+                    </div>
+                    
+                    <!-- Groups List -->
+                    <div id="groupsList" class="test-list">
+                        <!-- Groups will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Create/Edit Group Modal -->
+    <div id="groupModal" class="auth-container hidden">
+        <div class="auth-box" style="max-width: 500px;">
+            <h2 id="groupModalTitle">Создать новую группу</h2>
+            
+            <div id="groupErrorMessage" class="error-message hidden"></div>
+            <div id="groupSuccessMessage" class="success-message hidden"></div>
+
+            <form id="groupForm">
+                <div class="form-group">
+                    <label for="groupName">Название группы</label>
+                    <input type="text" id="groupName" required placeholder="Например: 9А, 10Б">
+                </div>
+                
+                <div class="form-group">
+                    <label for="groupSubject">Предмет</label>
+                    <select id="groupSubject" required>
+                        <option value="">Выберите предмет</option>
+                        <option value="math">Математика</option>
+                        <option value="physics">Физика</option>
+                        <option value="cs">Информатика</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="groupDescription">Описание группы</label>
+                    <textarea id="groupDescription" rows="2" placeholder="Дополнительная информация о группе"></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary btn-full">Сохранить группу</button>
+                <button type="button" class="btn-secondary btn-full" style="margin-top: 10px;" onclick="hideGroupModal()">Отмена</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/groups.js"></script>
+</body>
+</html>

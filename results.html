@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Результаты тестов - КвантиУм</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <header class="dashboard-header">
+            <div class="container">
+                <div class="logo">
+                    <h2>🎓 КвантиУм</h2>
+                </div>
+                <nav class="dashboard-nav">
+                    <a href="dashboard.html">Главная</a>
+                    <a href="tests.html">Тесты</a>
+                    <a href="results.html" class="active">Результаты</a>
+                    <a href="groups.html">Группы</a>
+                    <a href="#" onclick="logout()">Выйти</a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="dashboard-content">
+            <div class="container">
+                <!-- Results Header -->
+                <div class="section">
+                    <h2 id="resultsTitle">Результаты тестов</h2>
+                    
+                    <!-- Single Result View (when viewing specific result) -->
+                    <div id="singleResultView" class="hidden">
+                        <div class="test-item" style="margin-bottom: 2rem;">
+                            <div class="test-info">
+                                <h3 id="resultTestName">Название теста</h3>
+                                <div class="test-meta">
+                                    <span>📊 Балл: <strong id="resultScore">85%</strong></span>
+                                    <span>✅ Правильных: <span id="resultCorrect">8</span>/<span id="resultTotal">10</span></span>
+                                    <span>⏱️ Время: <span id="resultTime">25 мин</span></span>
+                                    <span id="resultDate"></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Detailed Answers -->
+                        <h3 style="margin: 2rem 0 1rem 0;">Подробный разбор ответов</h3>
+                        <div id="answersDetail" class="test-list">
+                            <!-- Answers will be loaded here -->
+                        </div>
+                        
+                        <div style="text-align: center; margin-top: 2rem;">
+                            <button class="btn-primary" onclick="window.location.href='results.html'">К списку результатов</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Results List -->
+                    <div id="resultsList" class="test-list">
+                        <!-- Results will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script src="js/results.js"></script>
+</body>
+</html>

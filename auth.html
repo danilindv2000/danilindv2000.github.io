@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход в систему - КвантиУм</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <h2>🎓 КвантиУм</h2>
+            <p class="text-center mb-2" style="color: var(--text-light);">Система тестирования знаний</p>
+            
+            <div id="errorMessage" class="error-message hidden"></div>
+            <div id="successMessage" class="success-message hidden"></div>
+
+            <!-- Login Form -->
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required placeholder="your@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginPassword">Пароль</label>
+                    <input type="password" id="loginPassword" required placeholder="••••••••">
+                </div>
+
+                <div class="form-group">
+                    <label for="loginRole">Роль</label>
+                    <select id="loginRole" required>
+                        <option value="">Выберите роль</option>
+                        <option value="student">Студент</option>
+                        <option value="teacher">Преподаватель</option>
+                        <option value="admin">Администратор</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn-primary btn-full">Войти</button>
+            </form>
+
+            <div class="auth-switch">
+                <p>Нет аккаунта? <a href="#" id="showRegister">Зарегистрироваться</a></p>
+                <p><a href="index.html">← На главную</a></p>
+            </div>
+
+            <!-- Register Form (Hidden by default) -->
+            <form id="registerForm" class="hidden">
+                <div class="form-group">
+                    <label for="registerName">ФИО</label>
+                    <input type="text" id="registerName" required placeholder="Иванов Иван Иванович">
+                </div>
+                
+                <div class="form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" required placeholder="your@email.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="registerPassword">Пароль</label>
+                    <input type="password" id="registerPassword" required placeholder="••••••••" minlength="6">
+                </div>
+
+                <div class="form-group">
+                    <label for="registerRole">Роль</label>
+                    <select id="registerRole" required>
+                        <option value="">Выберите роль</option>
+                        <option value="student">Студент</option>
+                        <option value="teacher">Преподаватель</option>
+                    </select>
+                </div>
+
+                <div id="studentFields" class="hidden">
+                    <div class="form-group">
+                        <label for="registerClass">Класс/Группа</label>
+                        <input type="text" id="registerClass" placeholder="10А">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary btn-full">Зарегистрироваться</button>
+            </form>
+
+            <div class="auth-switch hidden" id="registerSwitch">
+                <p>Уже есть аккаунт? <a href="#" id="showLogin">Войти</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>
